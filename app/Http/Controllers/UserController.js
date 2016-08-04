@@ -5,6 +5,10 @@ const Hash = use('Hash');
 
 class UserController {
 
+  * show (request, response) {
+    return response.json(request.currentUser);
+  }
+
   * store (request, response) {
     // Get the input our user sends in & hash the password
     const input = request.only('email', 'password', 'github');
@@ -24,7 +28,7 @@ class UserController {
       const user = yield User.findBy('email', input.email);
       // Verify their passwords matches & if not, let em know
       const verify = yield Hash.verify(input.password, user.password);
-      if (!verify) { throw new TypeError('You f*****ed up') };
+      if (!verify) { throw new Error('Password mismatch') };
       // Generate a token
       user.access_token = yield request.auth.generate(user);
 
