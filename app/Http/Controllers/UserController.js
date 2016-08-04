@@ -6,7 +6,7 @@ const Hash = use('Hash');
 class UserController {
 
   * show (request, response) {
-    return response.json(request.currentUser);
+    return response.json(request.authUser);
   }
 
   * store (request, response) {
