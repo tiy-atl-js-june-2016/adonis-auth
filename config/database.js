@@ -73,7 +73,7 @@ module.exports = {
     //   password: Env.get('DB_PASSWORD', ''),
     //   database: Env.get('DB_DATABASE', 'adonis')
     // }
-    connection: Env.get('DB_CONNECTION')
+    connection: Env.get('DATABASE_URL')
   }
 
 }
