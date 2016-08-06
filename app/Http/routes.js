@@ -26,5 +26,4 @@ Route.get('/profile', 'UserController.show').middleware('auth')
 
 // Routes for Todos
 Route.get('/todos', 'TodoController.index').middleware('auth')
-Route.get('/todos/:id', 'TodoController.single')
 Route.post('/todos', 'TodoController.store').middleware('auth')

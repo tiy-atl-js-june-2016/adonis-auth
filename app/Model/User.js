@@ -2,6 +2,9 @@
 
 const Lucid = use('Lucid')
 
+const Todo = use('App/Model/Todo')
+const Token = use('App/Model/Token')
+
 class User extends Lucid {
 
   static get hidden () {
@@ -9,11 +12,11 @@ class User extends Lucid {
   }
 
   apiTokens () {
-    return this.hasMany('App/Model/Token')
+    return this.hasMany(Token)
   }
 
   todos () {
-    return this.hasMany('App/Model/Todo')
+    return this.hasMany(Todo)
   }
 
 }
